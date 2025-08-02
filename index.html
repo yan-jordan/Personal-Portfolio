@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="nav-bar-div">
+        <nav class="top-nav-bar">
+            <marquee behavior="scroll" direction="right"><h1 class="pouyanmb"><a class="first-link" href="#"><i class="fa-solid fa-cat"></i>  Pouyan MB</a></h1></marquee>
+        </nav>
+        <nav class="nav-bar">
+            <ul>
+                <li></li>
+                <li><a href="#projects">Projects <span class="fa-solid fa-book"></span></a></li>
+                <li><a href="#">About  <span class="fa-solid fa-comment-dots"></span></a></li>
+                <li><a href="#contact">Contact  <span class="fa-solid fa-paper-plane"></span></a></li>
+                <li><a href="https://www.linkedin.com" target="blank">LinkedIn  <span class="fa-brands fa-line"></span> </a></li>
+                <li><a href="https://github.com/yan-jordan" target="blank">Github  <span class="fa-brands fa-github"></span></a></li>
+                <li><a href="#" class="button">Resume</a></li>
+                </ul>
+        </nav>
+    </div>
+        
+    <div class="intro">
+        <p class="'name">Hi , My Name Is <span>Pouyan MehdiBeik</span></p>
+        <h2>Computer Science Student At AUT</h2>
+        <p>I Am Trying To Be Front-End Developer.</p>
+        <p>Currently Im Learning html,css Skills from <a href="https://frontendmasters.com/" target="_blank">frontendmasters.com</a></p>
+    </div>
+    <div class="gridient"></div>
+    <div class="projects" id="projects">
+        <h2>Projects Im proud of</h2>
+        <article>
+            <div class="texts">
+                <h4>"Latest project"</h4>
+                <h3>The Stored-Program Computer Concept</h3>
+                <p class="text-box">This was less a single "project" and more a revolutionary concept implemented by several early teams. The idea that a computer could store its instructions in memory just like data, rather than being rewired for each task, was fundamental to the development of all modern computers. It enabled the flexibility and power we associate with computing today.you can get more info <a href="https://www.britannica.com/technology/stored-program-concept"> here!</a></p>
+                <h4>list of technology used:</h4>
+                    <ul>
+                        <li>Logic Circuitry</li>
+                        <li>Memory Technologies</li>
+                        <li>Input Methods</li>
+                    </ul>
+                </div>
+        <img src="photos/project-picture-portfolio.png" alt="project-picture">
+    </article>
+    <div class="gridient2"></div>
+    <article class="second">
+        <div class="texts">
+            <h3>The World Wide Web</h3>
+            <p class="text-box">Developed by Tim Berners-Lee at CERN, the WWW transformed the internet (which existed before) from a network primarily used by academics and researchers into a global, accessible information space for everyone. By creating foundational technologies like HyperText Markup Language (HTML), Hypertext Transfer Protocol (HTTP), and Uniform Resource Identifiers (URIs/URLs), the Web made it possible to link and browse information seamlessly across the globe.</p>
+            </div>
+    <img  src="photos/wwb.jpg" alt="project-picture">
+    </article>
+    <div class="gridient2"></div>
+    <article>
+        <div class="texts">
+            <h3>Artificial Intelligence</h3>
+            <p class="text-box">While the concept of AI is old, the last few decades have seen a monumental shift from theoretical ideas to practical, highly impactful applications. Projects like IBM's Deep Blue defeating a world chess champion in 1997, Google DeepMind's AlphaGo mastering the game of Go in 2016, and the recent explosion of Large Language Models (LLMs) like OpenAI's GPT series, Google's Gemini, and other generative AI systems, represent a new era.</p>
+            </div>
+    <img src="photos/ai.jpg" alt="project-picture">
+    </article>
+    </div>
+    <div class="gridient"></div>
+    <div class="contact" id="contact">
+        <h2>Contact me</h2>
+        <p>Im always intrested in hearing about <br> new teaching oppurtunitues , learniing, <br> writing or instuctional design work.</p>
+        <button><a href="#"></a>Email Me</button>
+    </div>
+    <div class="gridient"></div>
+    <div class="footer">
+        <h2>Pouyan MB - Educator</h2>
+        <nav><a href="#"><span class="fa-brands fa-github"></span></a>
+             <a href="#"><span class="fa-brands fa-linkedin"></span></a>
+             <a href="#"><span class="fa-brands fa-envelope"></span></a>
+            </nav>
+            <p>2024PouyanMB.All rights reserved.</p>
+    </div>
+    <div class="gridient"></div>
+
+
+
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactSection = document.querySelector('.contact');
+        
+            // Fallback for browsers that don't support IntersectionObserver (very rare nowadays)
+            if (!('IntersectionObserver' in window)) {
+                if (contactSection) {
+                    contactSection.classList.add('is-visible');
+                }
+                return; // Exit if IntersectionObserver is not supported
+            }
+        
+            if (contactSection) {
+                const observerOptions = {
+                    root: null, // null means the viewport
+                    rootMargin: '0px', // No margin around the viewport
+                    threshold: 0.1 // Trigger when 10% of the element is visible
+                };
+        
+                const observerCallback = (entries, observer) => {
+                    entries.forEach(entry => {
+                        // entry.isIntersecting is true when the element is visible
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target); // Stop observing once it's visible (animate only once)
+                        }
+                    });
+                };
+        
+                // Create the observer
+                const contactObserver = new IntersectionObserver(observerCallback, observerOptions);
+        
+                // Start observing the .contact section
+                contactObserver.observe(contactSection);
+            }
+        });
+        </script>
+</body>
+</html>
+
